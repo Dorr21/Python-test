@@ -1,2 +1,32 @@
+import turtle
 
-
+# Set up the turtle screen
+screen = turtle.Screen()
+screen.bgcolor("black")
+screen.title("Bouncing Ball")
+
+# Create the ball turtle
+ball = turtle.Turtle()
+ball.shape("circle")
+ball.color("red")
+ball.penup()
+
+# Set the initial position and velocity of the ball
+x_pos = 0
+y_pos = 0
+x_vel = 5
+y_vel = 3
+
+# Set up the animation loop
+while True:
+    # Move the ball
+    x_pos += x_vel
+    y_pos += y_vel
+    ball.goto(x_pos, y_pos)
+
+    # Check if the ball has hit a wall
+    if x_pos > 300 or x_pos < -300:
+        x_vel = -x_vel
+    if y_pos > 300 or y_pos < -300:
+        y_vel = -y_vel
+
